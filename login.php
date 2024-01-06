@@ -1,3 +1,34 @@
+<?php
+session_start();
+$pesan = "";
+
+if (isset($_POST['tombol'])) {
+    //1. koneksi dulu ke database
+    include_once("koneksi.php");
+
+    //2. mengambil nilai dari input
+    $user = $_POST['kd_ptg'];
+    $password = md5($_POST['password']);
+
+    //3. menulis query
+    $qry = "SELECT * FROM ptgs WHERE kd_ptg='$user' 
+    AND password='$password'";
+
+    //4. jalankan query
+    $result = mysqli_query($conn, $qry);
+
+    if ($result) {
+        $pesan = '<div class="alert alert-success" role="alert">
+        Login Berhasil!.
+        </div>';
+    } else {
+        $pesan = '<div class="alert alert-danger" role="alert">
+        Login Tidak Valid!.
+        </div>';
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,13 +53,16 @@
             <a href="../../index2.html"><b>Admin</b>LTE</a>
         </div>
         <!-- /.login-logo -->
+        <?php
+        echo $pesan;
+        ?>
         <div class="card">
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Sign in to start your session</p>
 
                 <form action="login.php" method="post">
                     <div class="input-group mb-3">
-                        <input type="username" name="username" class="form-control" placeholder="Username">
+                        <input type="text" name="kd_ptg" class="form-control" placeholder="Kode Petugas">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
