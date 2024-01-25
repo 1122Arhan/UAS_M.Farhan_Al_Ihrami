@@ -32,9 +32,19 @@ if (isset($_POST['tombol'])) {
 
 
         //pembuatan session
-        $_SESSION['sid'] = $id;
-        $_SESSION['snama'] = $nama;
-        $_SESSION['skd_ptg'] = $kd_ptg;
+
+        if ($_POST['ingat'] == "yes") {
+            //pembuatan cookie
+            setcookie("cid", $id, time() + (60 * 60 * 24 * 3), "/");
+            setcookie("cnama", $nama, time() + (60 * 60 * 24 * 3), "/");
+            setcookie("ckd_ptg", $kd_ptg, time() + (60 * 60 * 24 * 3), "/");
+        } else {
+            //pembuatan session
+            $_SESSION['sid'] = $id;
+            $_SESSION['snama'] = $nama;
+            $_SESSION['skd_ptg'] = $kd_ptg;
+        }
+
 
         //update last log
         $qry_update = "UPDATE ptgs SET last_log= 'now()'

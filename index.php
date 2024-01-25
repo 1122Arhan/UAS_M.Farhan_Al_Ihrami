@@ -1,12 +1,5 @@
 <?php
-session_start();
-if (!isset($_SESSION['sid'])) {
-?>
-    <script>
-        document.location = "login.php";
-    </script>
-<?php
-}
+include_once('ceklog.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
