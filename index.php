@@ -29,8 +29,8 @@ include_once('ceklog.php');
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="../../index3.html" class="brand-link">
-                <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: 0.8" />
+            <a href="index.php" class="brand-link">
+                <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: 0.8" />
                 <span class="brand-text font-weight-light">AdminLTE 3</span>
             </a>
 
@@ -47,14 +47,18 @@ include_once('ceklog.php');
             <section class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h1>Blank Page</h1>
+                        <div class="col-sm-2">
+                            <input type="text" name="kd_ptg" class="form-control" placeholder="No Meja">
                         </div>
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Blank Page</li>
-                            </ol>
+                        <div class="col-sm-2">
+                            <button type="submit" name="tombol" class="btn btn-primary btn-block">Pesan Sekarang</button>
+                        </div>
+                        <div class="col-sm-2"></div>
+
+
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-2">
+                            <a href="form_menu" class="btn btn-primary btn-block">+ Tambah Menu</a>
                         </div>
                     </div>
                 </div>
@@ -63,9 +67,102 @@ include_once('ceklog.php');
 
             <!-- Main content -->
             <section class="content">
-                <!-- /.row -->
 
-                <!-- /.row -->
+                <form action="" method="post">
+                    <div class="input-group mb-3">
+
+                    </div>
+                    <!-- /.row -->
+                    <div class="row">
+
+                        <?php
+
+                        //1.membuat koneksi
+                        include_once("koneksi.php");
+
+                        //2.menampilkan semua isi tabel
+                        $qry = "SELECT * FROM menu";
+
+                        //2.menjalankan query
+                        $menu = mysqli_query($conn, $qry);
+                        $i = 1;
+
+                        foreach ($menu as $mn) { ?>
+                            <div class="col-6">
+                                <div class="card card-olive">
+                                    <div class="card-header">
+                                        <h3 class="card-title"><?= $mn["nama"]; ?></h3>
+
+                                        <div class="card-tools">
+                                        </div>
+                                    </div>
+                                    <!-- /.card-header -->
+                                    <div class="card-body table-responsive p-0" style="height: 300px;">
+                                        <div class="card-body">
+
+                                            <input type="hidden" name="kode_menu">
+
+                                            <table class="table table-striped table-responsive-sm">
+
+                                                <tr>
+
+                                                    <td>Harga</td>
+
+                                                    <td>:</td>
+
+                                                    <td class="card-text">Rp<?= $mn["harga"]; ?></td>
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td>Kategori</td>
+
+                                                    <td>:</td>
+
+                                                    <td class="card-text"><?= $mn["kategori"]; ?></td>
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td>Status</td>
+
+                                                    <td>:</td>
+
+                                                    <td class="card-text"><?= $mn["status"]; ?></td>
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td>Qty</td>
+
+                                                    <td>:</td>
+
+                                                    <td class="card-text"><input min="0" type="number" name="qty<?= $i; ?>"></td>
+
+                                                </tr>
+
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                    <!-- /.card-body -->
+                                </div>
+                                <!-- /.card -->
+                            </div>
+
+
+
+
+                        <?php $i++;
+                        } ?>
+
+                    </div>
+                    <!-- /.row -->
+
+                </form>
             </section>
             <!-- /.content -->
         </div>

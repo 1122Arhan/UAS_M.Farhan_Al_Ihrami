@@ -2,6 +2,7 @@
 session_start();
 $pesan = "";
 
+
 if (isset($_POST['tombol'])) {
     //1. koneksi dulu ke database
     include_once("koneksi.php");
@@ -47,7 +48,7 @@ if (isset($_POST['tombol'])) {
 
 
         //update last log
-        $qry_update = "UPDATE ptgs SET last_log= 'now()'
+        $qry_update = "UPDATE ptgs SET last_log= now()
         WHERE id='$id'";
         $res_update = mysqli_query($conn, $qry_update);
 
@@ -56,6 +57,7 @@ if (isset($_POST['tombol'])) {
         <script>
             document.location = "index.php";
         </script>
+
 <?php
     } else {
         $pesan = '<div class="alert alert-danger" role="alert">
