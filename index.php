@@ -46,21 +46,22 @@ include_once('ceklog.php');
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <div class="container-fluid">
-                    <div class="row mb-2">
-                        <div class="col-sm-2">
-                            <input type="text" name="kd_ptg" class="form-control" placeholder="No Meja">
-                        </div>
-                        <div class="col-sm-2">
-                            <button type="submit" name="tombol" class="btn btn-primary btn-block">Pesan Sekarang</button>
-                        </div>
-                        <div class="col-sm-2"></div>
+                    <form action="tambah_psn.php" method="POST">
+                        <div class="row mb-2">
+                            <div class="col-sm-2">
+                                <input type="text" name="no_meja" class="form-control" placeholder="No Meja">
+                            </div>
+                            <div class="col-sm-2">
+                                <button type="submit" name="tombol" class="btn btn-primary btn-block">Pesan Sekarang</button>
+                            </div>
+                            <div class="col-sm-2"></div>
 
 
-                        <div class="col-sm-4"></div>
-                        <div class="col-sm-2">
-                            <a href="form_menu" class="btn btn-primary btn-block">+ Tambah Menu</a>
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-2">
+                                <a href="form_menu.php" class="btn btn-primary btn-block">+ Tambah Menu</a>
+                            </div>
                         </div>
-                    </div>
                 </div>
                 <!-- /.container-fluid -->
             </section>
@@ -68,100 +69,98 @@ include_once('ceklog.php');
             <!-- Main content -->
             <section class="content">
 
-                <form action="" method="post">
-                    <div class="input-group mb-3">
 
-                    </div>
-                    <!-- /.row -->
-                    <div class="row">
+                <div class="input-group mb-3">
 
-                        <?php
+                </div>
+                <!-- /.row -->
+                <div class="row">
 
-                        //1.membuat koneksi
-                        include_once("koneksi.php");
+                    <?php
 
-                        //2.menampilkan semua isi tabel
-                        $qry = "SELECT * FROM menu";
+                    //1.membuat koneksi
+                    include_once("koneksi.php");
 
-                        //2.menjalankan query
-                        $menu = mysqli_query($conn, $qry);
-                        $i = 1;
+                    //2.menampilkan semua isi tabel
+                    $qry = "SELECT * FROM menu";
 
-                        foreach ($menu as $mn) { ?>
-                            <div class="col-6">
-                                <div class="card card-olive">
-                                    <div class="card-header">
-                                        <h3 class="card-title"><?= $mn["nama"]; ?></h3>
+                    //2.menjalankan query
+                    $menu = mysqli_query($conn, $qry);
+                    $i = 1;
 
-                                        <div class="card-tools">
-                                        </div>
+                    foreach ($menu as $mn) { ?>
+                        <div class="col-6">
+                            <div class="card card-olive">
+                                <div class="card-header">
+                                    <h3 class="card-title"><?= $mn["nama"]; ?></h3>
+
+                                    <div class="card-tools">
                                     </div>
-                                    <!-- /.card-header -->
-                                    <div class="card-body table-responsive p-0" style="height: 300px;">
-                                        <div class="card-body">
-
-                                            <input type="hidden" name="kode_menu">
-
-                                            <table class="table table-striped table-responsive-sm">
-
-                                                <tr>
-
-                                                    <td>Harga</td>
-
-                                                    <td>:</td>
-
-                                                    <td class="card-text">Rp<?= $mn["harga"]; ?></td>
-
-                                                </tr>
-
-                                                <tr>
-
-                                                    <td>Kategori</td>
-
-                                                    <td>:</td>
-
-                                                    <td class="card-text"><?= $mn["kategori"]; ?></td>
-
-                                                </tr>
-
-                                                <tr>
-
-                                                    <td>Status</td>
-
-                                                    <td>:</td>
-
-                                                    <td class="card-text"><?= $mn["status"]; ?></td>
-
-                                                </tr>
-
-                                                <tr>
-
-                                                    <td>Qty</td>
-
-                                                    <td>:</td>
-
-                                                    <td class="card-text"><input min="0" type="number" name="qty<?= $i; ?>"></td>
-
-                                                </tr>
-
-                                            </table>
-                                        </div>
-
-                                    </div>
-                                    <!-- /.card-body -->
                                 </div>
-                                <!-- /.card -->
+                                <!-- /.card-header -->
+                                <div class="card-body table-responsive p-0" style="height: 300px;">
+                                    <div class="card-body">
+
+
+
+                                        <table class="table table-striped table-responsive-sm">
+                                            <tr>
+
+                                                <td>Harga</td>
+
+                                                <td>:</td>
+
+                                                <td class="card-text"><?= $mn["harga"]; ?></td>
+
+
+                                            </tr>
+
+                                            <tr>
+
+                                                <td>Kategori</td>
+
+                                                <td>:</td>
+
+                                                <td class="card-text"><?= $mn["kategori"]; ?></td>
+
+                                            </tr>
+
+                                            <tr>
+
+                                                <td>Status</td>
+
+                                                <td>:</td>
+
+                                                <td class="card-text"><?= $mn["status"]; ?></td>
+
+                                            </tr>
+
+                                            <tr>
+
+                                                <td>Qty</td>
+
+                                                <td>:</td>
+
+                                                <td class="card-text"><input min="0" type="number" name="qty"></td>
+                                            </tr>
+
+                                        </table>
+                                    </div>
+
+                                </div>
+                                <!-- /.card-body -->
                             </div>
+                            <!-- /.card -->
+                        </div>
 
 
 
 
-                        <?php $i++;
-                        } ?>
+                    <?php $i++;
+                    } ?>
 
-                    </div>
-                    <!-- /.row -->
-
+                </div>
+                <!-- /.row -->
                 </form>
             </section>
             <!-- /.content -->
