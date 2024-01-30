@@ -144,6 +144,12 @@ include_once('ceklog.php');
                                                 <td class="card-text"><input min="0" type="number" name="qty"></td>
                                             </tr>
 
+                                            <tr>
+                                                <td><a href="edit.php" class="btn btn-primary">EDIT</a></td>
+                                                <td></td>
+                                                <td><a href="" class="btn btn-danger">DELETE</a></td>
+                                            </tr>
+
                                         </table>
                                     </div>
 
