@@ -131,7 +131,7 @@ include_once('ceklog.php');
 
                                                 <td>:</td>
 
-                                                <td class="card-text"><?= $mn["status"]; ?></td>
+                                                <td class="card-text"><?= $mn["statusmn"]; ?></td>
 
                                             </tr>
 

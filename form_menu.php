@@ -56,23 +56,23 @@ include_once('ceklog.php');
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form action="" method="$_POST">
+                    <form action="insertmenu.php" method="POST">
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="Nama Menu">Nama Menu</label>
-                                <input type="name" class="form-control" id="nama_menu" name="nama_menu">
+                                <label for="">Nama Menu</label>
+                                <input type="text" class="form-control" id="nama_menu" name="nama_menu">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Kode Menu</label>
-                                <input type="name" class="form-control" id="kd_menu" name="kd_mn">
+                                <label for="">Kode Menu</label>
+                                <input type="text" class="form-control" id="kd_menu" name="kd_menu">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Harga</label>
-                                <input type="name" class="form-control" id="harga" name="harga">
+                                <label for="">Harga</label>
+                                <input type="number" class="form-control" id="harga" name="harga">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputFile">Jenis Menu</label>
-                                <select class="custom-select form-control-border" id="exampleSelectBorder">
+                                <select class="custom-select form-control-border" name="jenis_menu" id="jenis_menu">
                                     <option value="">Pilih Jenis Menu</option>
                                     <option value="Makanan">Makanan</option>
                                     <option value="Minuman">Minuman</option>
@@ -82,16 +82,16 @@ include_once('ceklog.php');
                             <div class="form-group">
                                 <label class="form-label">Ketersediaan Menu</label><br>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="radio" id="r1" value="tersedia">
+                                    <input class="form-check-input" type="radio" name="status_menu" id="status_menu" value="tersedia">
                                     <label class="form-check-label" for="inlineRadio1">Tersedia</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="radio" id="r2" value="kosong">
+                                    <input class="form-check-input" type="radio" name="status_menu" id="status_menu" value="kosong">
                                     <label class="form-check-label" for="inlineRadio2">Kosong</label>
                                 </div>
                             </div>
 
-                            <button type="submit" name="tombol" class="btn btn-primary btn-block">Submit</button>
+                            <button type="submit" value="submit" name="tombol" class="btn btn-primary btn-block">Submit</button>
 
                         </div>
                         <!-- /.card-body -->
