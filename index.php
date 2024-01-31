@@ -46,7 +46,7 @@ include_once('ceklog.php');
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <div class="container-fluid">
-                    <form action="tambah_psn.php" method="POST">
+                    <form action="pp.php" method="POST">
                         <div class="row mb-2">
                             <div class="col-sm-2">
                                 <input type="text" name="no_meja" class="form-control" placeholder="No Meja">
@@ -59,7 +59,7 @@ include_once('ceklog.php');
 
                             <div class="col-sm-4"></div>
                             <div class="col-sm-2">
-                                <a href="form_menu.php?id=<?php echo $mn['id'] ?>" class="btn btn-primary btn-block">+ Tambah Menu</a>
+                                <a href="form_menu.php" class="btn btn-primary btn-block">+ Tambah Menu</a>
                             </div>
                         </div>
                 </div>
@@ -89,7 +89,14 @@ include_once('ceklog.php');
                     $i = 1;
 
                     foreach ($menu as $mn) { ?>
+
+
+
                         <div class="col-6">
+
+                            <input type="hidden" name="kode_menu" value="<?php echo $mn['kode_menu'] ?>">
+                            <input type="hidden" name="harga" value="<?php echo $mn['harga'] ?>">
+
                             <div class="card card-olive">
                                 <div class="card-header">
                                     <h3 class="card-title"><?= $mn["nama"]; ?></h3>
