@@ -22,5 +22,5 @@ $simpan = mysqli_query($conn, $q);
 ?>
 
 <script>
-    // document.location = "index.php";
+    document.location = "index.php";
 </script>
