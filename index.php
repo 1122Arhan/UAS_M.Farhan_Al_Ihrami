@@ -154,9 +154,11 @@ include_once('ceklog.php');
                                             <tr>
                                                 <td><a href="fe.php?id=<?php echo $mn['id'] ?>" class="btn btn-primary">EDIT</a></td>
                                                 <td></td>
-                                                <td><a href="" class="btn btn-danger">DELETE</a></td>
+                                                <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#hapus<?php echo $mn['id'] ?>">
+                                                        DELETE
+                                                    </button>
+                                                </td>
                                             </tr>
-
                                         </table>
                                     </div>
 
@@ -167,7 +169,24 @@ include_once('ceklog.php');
                         </div>
 
 
+                        <!-- /.modal -->
 
+                        <div class="modal fade" id="hapus<?php echo $mn['id'] ?>">
+                            <div class="modal-dialog modal-sm">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <p>Anda Yakin Ingin Menghapus Menu <b><?php echo $mn['nama'] ?></b> ? </p>
+                                    </div>
+                                    <div class="modal-footer justify-content-between">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <a href="delete.php?id=<?php echo $mn['id'] ?>" class="btn btn-danger">Ya</a>
+                                    </div>
+                                </div>
+                                <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
+                        </div>
+                        <!-- /.modal -->
 
                     <?php $i++;
                     } ?>
