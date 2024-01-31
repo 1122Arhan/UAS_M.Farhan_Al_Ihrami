@@ -71,10 +71,6 @@ $mne = mysqli_fetch_array($data_menu);
                                 <input type="text" class="form-control" id="nama_menu" name="nama_menu" value="<?php echo $mne['nama'] ?>">
                             </div>
                             <div class="form-group">
-                                <label for="">Kode Menu</label>
-                                <input type="text" class="form-control" id="kd_menu" name="kd_menu" value="<?php echo $mne['kode_menu'] ?>">
-                            </div>
-                            <div class="form-group">
                                 <label for="">Harga</label>
                                 <input type="number" class="form-control" id="harga" name="harga" value="<?php echo $mne['harga'] ?>">
                             </div>

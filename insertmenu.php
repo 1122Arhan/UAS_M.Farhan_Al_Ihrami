@@ -3,7 +3,7 @@
 include_once('koneksi.php');
 
 //2.mengambil seluruh nilai input dari variabel
-$kd_menu = $_POST['kd_menu'];
+$kd_menu = uniqid();
 $nama_menu = $_POST['nama_menu'];
 $harga = $_POST['harga'];
 $jenismenu = $_POST['jenis_menu'];

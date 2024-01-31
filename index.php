@@ -105,13 +105,6 @@ include_once('ceklog.php');
 
                                         <table class="table table-striped table-responsive-sm">
                                             <tr>
-                                                <td>Kode Menu</td>
-
-                                                <td>:</td>
-
-                                                <td class="card-text"><?= $mn["kode_menu"]; ?></td>
-                                            </tr>
-                                            <tr>
 
                                                 <td>Harga</td>
 

@@ -63,10 +63,6 @@ include_once('ceklog.php');
                                 <input type="text" class="form-control" id="nama_menu" name="nama">
                             </div>
                             <div class="form-group">
-                                <label for="">Kode Menu</label>
-                                <input type="text" class="form-control" id="kd_menu" name="kode_menu">
-                            </div>
-                            <div class="form-group">
                                 <label for="">Harga</label>
                                 <input type="number" class="form-control" id="harga" name="harga">
                             </div>
