@@ -60,11 +60,11 @@ include_once('ceklog.php');
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="">Nama Menu</label>
-                                <input type="text" class="form-control" id="nama_menu" name="nama_menu">
+                                <input type="text" class="form-control" id="nama_menu" name="nama">
                             </div>
                             <div class="form-group">
                                 <label for="">Kode Menu</label>
-                                <input type="text" class="form-control" id="kd_menu" name="kd_menu">
+                                <input type="text" class="form-control" id="kd_menu" name="kode_menu">
                             </div>
                             <div class="form-group">
                                 <label for="">Harga</label>
@@ -72,7 +72,7 @@ include_once('ceklog.php');
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputFile">Jenis Menu</label>
-                                <select class="custom-select form-control-border" name="jenis_menu" id="jenis_menu">
+                                <select class="custom-select form-control-border" name="kategori" id="kategori">
                                     <option value="">Pilih Jenis Menu</option>
                                     <option value="Makanan">Makanan</option>
                                     <option value="Minuman">Minuman</option>
@@ -82,11 +82,11 @@ include_once('ceklog.php');
                             <div class="form-group">
                                 <label class="form-label">Ketersediaan Menu</label><br>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="status_menu" id="status_menu" value="tersedia">
+                                    <input class="form-check-input" type="radio" name="statusmn" id="status_menu" value="tersedia">
                                     <label class="form-check-label" for="inlineRadio1">Tersedia</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="status_menu" id="status_menu" value="kosong">
+                                    <input class="form-check-input" type="radio" name="statusmn" id="status_menu" value="kosong">
                                     <label class="form-check-label" for="inlineRadio2">Kosong</label>
                                 </div>
                             </div>
