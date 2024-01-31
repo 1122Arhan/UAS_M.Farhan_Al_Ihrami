@@ -59,7 +59,7 @@ include_once('ceklog.php');
 
                             <div class="col-sm-4"></div>
                             <div class="col-sm-2">
-                                <a href="form_menu.php" class="btn btn-primary btn-block">+ Tambah Menu</a>
+                                <a href="form_menu.php?id=<?php echo $mn['id'] ?>" class="btn btn-primary btn-block">+ Tambah Menu</a>
                             </div>
                         </div>
                 </div>
@@ -105,6 +105,13 @@ include_once('ceklog.php');
 
                                         <table class="table table-striped table-responsive-sm">
                                             <tr>
+                                                <td>Kode Menu</td>
+
+                                                <td>:</td>
+
+                                                <td class="card-text"><?= $mn["kode_menu"]; ?></td>
+                                            </tr>
+                                            <tr>
 
                                                 <td>Harga</td>
 
@@ -145,7 +152,7 @@ include_once('ceklog.php');
                                             </tr>
 
                                             <tr>
-                                                <td><a href="edit.php" class="btn btn-primary">EDIT</a></td>
+                                                <td><a href="fe.php?id=<?php echo $mn['id'] ?>" class="btn btn-primary">EDIT</a></td>
                                                 <td></td>
                                                 <td><a href="" class="btn btn-danger">DELETE</a></td>
                                             </tr>
