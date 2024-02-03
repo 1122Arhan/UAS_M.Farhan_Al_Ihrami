@@ -45,155 +45,97 @@ include_once('ceklog.php');
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <section class="content-header">
-                <div class="container-fluid">
-                    <form action="pp.php" method="POST">
-                        <div class="row mb-2">
-                            <div class="col-sm-2">
-                                <input type="text" name="no_meja" class="form-control" placeholder="No Meja">
-                            </div>
-                            <div class="col-sm-2">
-                                <button type="submit" name="tombol" class="btn btn-primary btn-block">Pesan Sekarang</button>
-                            </div>
-                            <div class="col-sm-2"></div>
 
-
-                            <div class="col-sm-4"></div>
-                            <div class="col-sm-2">
-                                <a href="form_menu.php" class="btn btn-primary btn-block">+ Tambah Menu</a>
-                            </div>
-                        </div>
-                </div>
                 <!-- /.container-fluid -->
             </section>
 
+            <?php
+            include_once('koneksi.php');
+
+            $sql_ptgs = "SELECT *  FROM ptgs";
+
+            $res_ptgs = mysqli_query($conn, $sql_ptgs);
+
+            $ptgs = mysqli_num_rows($res_ptgs);
+
+            $sql_mn = "SELECT *  FROM menu";
+
+            $res_mn = mysqli_query($conn, $sql_mn);
+
+            $menu = mysqli_num_rows($res_mn);
+
+            $sql_ps = "SELECT *  FROM pesanan";
+
+            $res_ps = mysqli_query($conn, $sql_ps);
+
+            $ps = mysqli_num_rows($res_ps);
+
+
+            ?>
             <!-- Main content -->
             <section class="content">
-
-
-                <div class="input-group mb-3">
-
-                </div>
-                <!-- /.row -->
                 <div class="row">
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-info">
+                            <div class="inner">
+                                <h3><?php echo $ptgs ?></h3>
 
-                    <?php
-
-                    //1.membuat koneksi
-                    include_once("koneksi.php");
-
-                    //2.menampilkan semua isi tabel
-                    $qry = "SELECT * FROM menu";
-
-                    //2.menjalankan query
-                    $menu = mysqli_query($conn, $qry);
-                    $i = 1;
-
-                    foreach ($menu as $mn) { ?>
-
-
-
-                        <div class="col-6">
-
-                            <input type="hidden" name="kode_menu" value="<?php echo $mn['kode_menu'] ?>">
-                            <input type="hidden" name="harga" value="<?php echo $mn['harga'] ?>">
-
-                            <div class="card card-olive">
-                                <div class="card-header">
-                                    <h3 class="card-title"><?= $mn["nama"]; ?></h3>
-
-                                    <div class="card-tools">
-                                    </div>
-                                </div>
-                                <!-- /.card-header -->
-                                <div class="card-body table-responsive p-0" style="height: 300px;">
-                                    <div class="card-body">
-
-
-
-                                        <table class="table table-striped table-responsive-sm">
-                                            <tr>
-
-                                                <td>Harga</td>
-
-                                                <td>:</td>
-
-                                                <td class="card-text"><?= $mn["harga"]; ?></td>
-
-
-                                            </tr>
-
-                                            <tr>
-
-                                                <td>Kategori</td>
-
-                                                <td>:</td>
-
-                                                <td class="card-text"><?= $mn["kategori"]; ?></td>
-
-                                            </tr>
-
-                                            <tr>
-
-                                                <td>Status</td>
-
-                                                <td>:</td>
-
-                                                <td class="card-text"><?= $mn["statusmn"]; ?></td>
-
-                                            </tr>
-
-                                            <tr>
-
-                                                <td>Qty</td>
-
-                                                <td>:</td>
-
-                                                <td class="card-text"><input min="0" type="number" name="qty"></td>
-                                            </tr>
-
-                                            <tr>
-                                                <td><a href="fe.php?id=<?php echo $mn['id'] ?>" class="btn btn-primary">EDIT</a></td>
-                                                <td></td>
-                                                <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#hapus<?php echo $mn['id'] ?>">
-                                                        DELETE
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-
-                                </div>
-                                <!-- /.card-body -->
+                                <p>Petugas</p>
                             </div>
-                            <!-- /.card -->
-                        </div>
-
-
-                        <!-- /.modal -->
-
-                        <div class="modal fade" id="hapus<?php echo $mn['id'] ?>">
-                            <div class="modal-dialog modal-sm">
-                                <div class="modal-content">
-                                    <div class="modal-body">
-                                        <p>Anda Yakin Ingin Menghapus Menu <b><?php echo $mn['nama'] ?></b> ? </p>
-                                    </div>
-                                    <div class="modal-footer justify-content-between">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                        <a href="delete.php?id=<?php echo $mn['id'] ?>" class="btn btn-danger">Ya</a>
-                                    </div>
-                                </div>
-                                <!-- /.modal-content -->
+                            <div class="icon">
+                                <i class="ion ion-bag"></i>
                             </div>
-                            <!-- /.modal-dialog -->
+                            <a href="berranda.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
-                        <!-- /.modal -->
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-success">
+                            <div class="inner">
+                                <h3><?php echo $ptgs ?></h3>
 
-                    <?php $i++;
-                    } ?>
+                                <p>Pesanan</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-stats-bars"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-warning">
+                            <div class="inner">
+                                <h3><?php echo $menu ?></h3>
 
+                                <p>Menu</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-person-add"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-danger">
+                            <div class="inner">
+                                <h3>65</h3>
+
+                                <p>Unique Visitors</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-pie-graph"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
                 </div>
-                <!-- /.row -->
-                </form>
             </section>
             <!-- /.content -->
         </div>

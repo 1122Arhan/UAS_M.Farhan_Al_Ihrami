@@ -12,5 +12,5 @@ setcookie("ckd_ptg", $kd_ptg, time() + (60 * 60 * 24 * 3), "/");
 
 ?>
 <script>
-    document.location = "login.php";
+    // document.location = "login.php";
 </script>

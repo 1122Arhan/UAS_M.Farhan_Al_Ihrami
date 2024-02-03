@@ -30,7 +30,15 @@
                  <a href="index.php" class="nav-link">
                      <i class="nav-icon fas fa-tachometer-alt"></i>
                      <p>
-                         Menus
+                         Dashboard
+                     </p>
+                 </a>
+             </li>
+             <li class="nav-item">
+                 <a href="menu.php" class="nav-link">
+                     <i class="nav-icon fas fa-th"></i>
+                     <p>
+                         Menu
                      </p>
                  </a>
              </li>
